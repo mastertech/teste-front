@@ -1,0 +1,28 @@
+.user-card {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px;
+  width: 350px;
+}
+
+.user-card .user-info {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.user-card .user-avatar {
+  width: 30%;
+}
+
+.user-card button {
+  background-color: lightblue;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  margin-top: 8px;
+  padding: 5px 15px;
+}
