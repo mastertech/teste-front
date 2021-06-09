@@ -4,7 +4,14 @@ const api = axios.create({
   baseURL,
 });
 const getProfile = async (email, password) => {
-  const result = await api.post('/user/login', { email, password });
-  return result.data;
+  if (email === '' || password === '') {
+    return false;
+  }
+  try {
+    const result = await api.post('/user/login', { email, password });
+    return result.data;
+  } catch (e) {
+    return false;
+  }
 };
 export default getProfile;

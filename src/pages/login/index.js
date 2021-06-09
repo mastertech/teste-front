@@ -8,14 +8,20 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(false);
+  const [error, setError] = useState(false);
 
   const loginAction = async (e) => {
     e.preventDefault();
     const result = await getProfile(email, password);
     console.log(result);
-    if (result) {
+    if (result !== false) {
       setUser(result);
+    } else {
+      setError('Email e/ou senha inválidos!');
     }
+  };
+  const showMessage = () => {
+    return <span className="error">{error}</span>;
   };
   return (
     <form className="login-form" type="POST">
@@ -49,6 +55,7 @@ const Login = () => {
       <button type="submit" onClick={(e) => loginAction(e)}>
         Entrar
       </button>
+      {error && showMessage()}
     </form>
   );
 };
