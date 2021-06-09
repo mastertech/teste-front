@@ -1,10 +1,10 @@
-import Login from './pages/login';
 import './global.css';
+import Routes from './routes';
 
 function App() {
   return (
     <div className="container">
-      <Login />
+      <Routes />
     </div>
   );
 }
