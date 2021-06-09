@@ -1,5 +1,12 @@
+import Login from './pages/login';
+import './global.css';
+
 function App() {
-  return <h1>Front-end Developer Mastertech</h1>;
+  return (
+    <div className="container">
+      <Login />
+    </div>
+  );
 }
 
 export default App;
