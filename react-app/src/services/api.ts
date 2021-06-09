@@ -1,5 +1,6 @@
 import axios from 'axios'
+import config from '../config'
 
 export const api = axios.create({
-  baseURL: 'http://jrwee.mocklab.io',
+  baseURL: config.baseURL,
 })
