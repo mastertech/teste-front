@@ -1,10 +1,14 @@
-import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes';
+import './styles/global-theme.css'
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Router>
+        <Routes />
+      </Router>
+    </>
   );
 }
 
