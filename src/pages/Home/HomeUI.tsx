@@ -1,0 +1,1 @@
+export const HomeUI = () => <h1>Home</h1>

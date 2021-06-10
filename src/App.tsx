@@ -1,3 +1,5 @@
-const App = () => <h1>App</h1>
+import { Routes } from './navigation';
+
+const App = () => <Routes />
 
 export default App;
