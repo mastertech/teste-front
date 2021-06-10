@@ -1,3 +1,6 @@
+import { withAuth } from '../../HOC/Auth';
 import { HomeUI } from './HomeUI';
 
-export const Home = () => <HomeUI />
+const Home = () => <HomeUI />
+
+export default withAuth(Home);
