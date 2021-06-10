@@ -13,11 +13,10 @@ const Login = () => {
   const loginAction = async (e) => {
     e.preventDefault();
     const result = await getProfile(email, password);
-    console.log(result);
-    if (result !== false) {
+    if (typeof result === 'object') {
       setUser(result);
     } else {
-      setError('Email e/ou senha inválidos!');
+      setError(result);
     }
   };
   const showMessage = () => {
@@ -40,6 +39,7 @@ const Login = () => {
           type="email"
           placeholder="email@email.com"
           value={email}
+          data-testid="email"
           onChange={({ target }) => setEmail(target.value)}
         ></input>
       </label>
@@ -49,10 +49,15 @@ const Login = () => {
           type="password"
           placeholder="password"
           value={password}
+          data-testid="password"
           onChange={({ target }) => setPassword(target.value)}
         ></input>
       </label>
-      <button type="submit" onClick={(e) => loginAction(e)}>
+      <button
+        data-testid="btn-login"
+        type="submit"
+        onClick={(e) => loginAction(e)}
+      >
         Entrar
       </button>
       {error && showMessage()}
