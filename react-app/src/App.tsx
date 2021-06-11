@@ -1,19 +1,15 @@
-import { FC, useState } from 'react'
-import { Button } from './components/Button'
-import { Card } from './components/Card'
-import { Input } from './components/Input'
-import { Title } from './components/Title'
+import { FC } from 'react'
+import { AuthProvider } from './context/AuthContext'
+import { Router } from 'react-router-dom'
+import { history } from './helpers/history'
+import { Routes } from './routes'
 
 export const App: FC = () => {
-  const [isLoading, setIsLoading] = useState(false)
-  const handleClick = () => setIsLoading(!isLoading)
-
   return (
-    <Card>
-      <Title>Login</Title>
-      <Input title="Email" type="email" name="email" inputMode="email" />
-      <Input title="Senha" type="password" name="password" inputMode="text" />
-      <Button title="Login" isLoading={isLoading} onClick={handleClick} />
-    </Card>
+    <AuthProvider>
+      <Router history={history}>
+        <Routes />
+      </Router>
+    </AuthProvider>
   )
 }
