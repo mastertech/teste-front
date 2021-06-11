@@ -7,7 +7,7 @@ import { setItemOnLocalStorage } from '../helpers/localStorage';
 type IUserContext = {
   user: IUser | null;
   login: (userData: IUser, cb: () => void) => void;
-  logout: () => void;
+  logout: (cb: () => void) => void;
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -33,9 +33,11 @@ export const UserProvider: React.FC = ({ children }) => {
     cb();
   }
 
-  const logout = () => {
+  const logout = (cb: () => void) => {
     localStorage.removeItem('user');
     setUser(null);
+
+    cb();
   }
 
   return (
