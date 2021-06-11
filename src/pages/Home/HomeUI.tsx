@@ -3,6 +3,7 @@ import { Layout } from '../../components/Layout';
 import { FaEnvelope, FaCalendar, FaMapPin, FaVenusMars } from 'react-icons/fa';
 import '../../styles/pages/Home.css';
 import { TextIcon } from '../../components/Home/TextIcon';
+import { formatDate } from '../../helpers/date';
 
 type HomeProps = {
   user: IUser;
@@ -16,7 +17,7 @@ export const HomeUI: React.FC<HomeProps> = ({ user, logout }) => (
         <h1>{ user.name }</h1>
 
         <TextIcon Icon={FaEnvelope} text={user.email} />
-        <TextIcon Icon={FaCalendar} text={user.birthday} />
+        <TextIcon Icon={FaCalendar} text={formatDate(user.birthday)} />
         <TextIcon Icon={FaMapPin} text={user.state} />
         <TextIcon Icon={FaVenusMars} text={user.gender} />
       </div>
