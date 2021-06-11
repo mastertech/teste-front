@@ -3,19 +3,23 @@ import { Redirect, RouteComponentProps } from 'react-router-dom';
 
 import { LoginUI } from './LoginUI';
 import { fetchUserData } from '../../adapters/login';
-import { getFormData } from '../../helpers/form';
 import { UserContext } from '../../context/UserContext';
 
 export const Login = ({ history }: RouteComponentProps) => {
   const { user, login } = useContext(UserContext);
 
+  const [loginData, setLoginData] = useState({ email: '', password: '' });
+
   const [error, setError] = useState('');
 
-  const handleLogin = async (event: any) => {
-    const data: any = getFormData(event);
+  const handleInput = (event: any) => {
+    const input = event.target;
+    setLoginData(data => ({ ...data, [input.name]: input.value }))
+  }
 
+  const handleLogin = async () => {
     try {
-      const user = await fetchUserData(data);
+      const user = await fetchUserData(loginData);
       
       login(user, () => {
         history.replace('/');
@@ -27,5 +31,5 @@ export const Login = ({ history }: RouteComponentProps) => {
 
   if (user) return <Redirect to="/" />
 
-  return <LoginUI error={error} handleSubmit={handleLogin} />
+  return <LoginUI error={error} data={loginData} handleLogin={handleLogin} handleInput={handleInput} />
 };
