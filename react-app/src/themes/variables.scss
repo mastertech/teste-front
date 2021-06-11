@@ -1,0 +1,49 @@
+// Colors
+$color-darkest-gray: #747474;
+$color-dark-gray: #9a9a9a;
+$color-ligth-gray: #b4b4b4;
+$color-lightest-gray: #cccccc;
+$color-yellow-primary: #cddc39;
+$border-color: #c4c4c4;
+// Shadows
+$shadow: 0px 2px 10px 6px rgba(0, 0, 0, 0.1);
+$shadow-input: 5px 10px 15px 5px rgba(0, 0, 0, 0.1);
+
+// Fonts and fonts weigths
+$font-name: 'Lato', sans-serif;
+$font-normal: 400;
+$font-ligth: 300;
+$font-bold: 700;
+
+// Margins
+$margin-default: 1rem;
+
+// Fonts sizes
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}

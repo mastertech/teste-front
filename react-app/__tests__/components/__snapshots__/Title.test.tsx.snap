@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> component should renders correctly 1`] = `
+Object {
+  "children": ArrayContaining [
+    "Test",
+  ],
+  "props": Object {
+    "className": "title",
+  },
+  "type": "h1",
+}
+`;

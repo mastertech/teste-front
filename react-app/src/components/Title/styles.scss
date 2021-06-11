@@ -1,0 +1,8 @@
+@use "../../themes/variables.scss" as theme;
+
+.title {
+  color: black;
+  @extend .text-3xl;
+  font-weight: theme.$font-bold;
+  margin: theme.$margin-default;
+}
