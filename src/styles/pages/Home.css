@@ -1,0 +1,22 @@
+.home_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.user_info_container {
+  width: 60%;
+}
+
+.user_info_container h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+}
+
+.container img {
+  max-width: 40%;
+  width: 150px;
+  height: auto;
+}

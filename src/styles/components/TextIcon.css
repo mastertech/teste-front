@@ -1,0 +1,10 @@
+.text_icon__container {
+  display: flex;
+  align-items: center;
+  margin: .8rem 0;
+}
+
+.text_icon {
+  color: #777;
+  font-size: 1.5rem;
+}
