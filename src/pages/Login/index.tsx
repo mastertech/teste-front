@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { Redirect, RouteComponentProps } from 'react-router-dom';
 
 import { LoginUI } from './LoginUI';
 import { fetchUserData } from '../../adapters/login';
@@ -7,7 +7,7 @@ import { getFormData } from '../../helpers/form';
 import { UserContext } from '../../context/UserContext';
 
 export const Login = ({ history }: RouteComponentProps) => {
-  const { login } = useContext(UserContext);
+  const { user, login } = useContext(UserContext);
 
   const [error, setError] = useState('');
 
@@ -24,6 +24,8 @@ export const Login = ({ history }: RouteComponentProps) => {
       setError('Erro inesperado, tente novamente mais tarde.');
     }
   };
+
+  if (user) return <Redirect to="/" />
 
   return <LoginUI error={error} handleSubmit={handleLogin} />
 };
