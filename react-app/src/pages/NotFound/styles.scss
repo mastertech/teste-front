@@ -1,0 +1,11 @@
+@use "../../themes/variables.scss" as theme;
+
+.not-found-image {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+}
+
+.not-found-subtitle {
+  @extend .text-lg;
+}
