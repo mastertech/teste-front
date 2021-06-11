@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> component should renders correctly 1`] = `
+<div
+  className="wrapper"
+>
+  <input
+    className="floating-input"
+    placeholder="Email"
+  />
+  <span
+    className="floating-label"
+  >
+    Email
+  </span>
+</div>
+`;
