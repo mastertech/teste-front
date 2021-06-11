@@ -1,3 +1,3 @@
 export default {
-  baseURL: 'http://jrwee.mocklab.io',
+  baseURL: 'http://jrwee.mocklab.io/user',
 }
