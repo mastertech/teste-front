@@ -1,6 +1,7 @@
+import { getItemFromLocalStorage } from './localStorage';
+
 export const verifyAuth = () => {
-  const stringifiedData = localStorage.getItem('user');
-  const user = stringifiedData ? JSON.parse(stringifiedData) : null;
+  const user = getItemFromLocalStorage('user', null);
 
   return !!user;
-};
+}
