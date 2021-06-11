@@ -5,6 +5,7 @@ import { Card } from '../../components/Card'
 import { Input } from '../../components/Input'
 import { Title } from '../../components/Title'
 import { AuthContext } from '../../context/AuthContext'
+import { useSnackBars } from '../../hooks/useSnackBars'
 import { isValidEmail } from '../../utils/isValidEmail'
 import './styles.scss'
 
@@ -12,6 +13,8 @@ export const Login: FC = () => {
   const { handleLogin, isLoading } = useContext(AuthContext)
   const inputEmailRef = useRef<HTMLInputElement>(null)
   const inputPassword = useRef<HTMLInputElement>(null)
+
+  const { addAlert } = useSnackBars()
 
   const validateForm = (email: string, password: string) => {
     if (isValidEmail(email) && typeof password === 'string') {
@@ -28,17 +31,17 @@ export const Login: FC = () => {
     const password = inputPassword.current?.value
 
     if (!email) {
-      return alert('Preencha o campo email')
+      return addAlert('Preencha o campo email')
     }
 
     if (!password) {
-      return alert('Preencha o campo senha')
+      return addAlert('Preencha o campo senha')
     }
 
     const isValidForm = validateForm(email, password)
 
     if (!isValidForm) {
-      return alert('O email digitado não é válido!')
+      return addAlert('O email digitado não é válido!')
     }
 
     await handleLogin({ email, password })
