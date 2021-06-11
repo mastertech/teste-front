@@ -22,7 +22,7 @@ export const HomeUI: React.FC<HomeProps> = ({ user, logout }) => (
         <TextIcon Icon={FaVenusMars} text={user.gender} />
       </div>
 
-      <img src={user.avatar} />
+      <img src={user.avatar} alt={`${user.name}`} />
     </div>
   </Layout>
 );
