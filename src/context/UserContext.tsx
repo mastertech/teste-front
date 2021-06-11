@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { createContext } from 'react';
 import { IUser } from '../@types/IUser';
-import { getItemFromLocalStorage, setItemOnLocalStorage } from '../helpers/localStorage';
+import { setItemOnLocalStorage } from '../helpers/localStorage';
 
 type IUserContext = {
   user: IUser | null;
-  login: (userData: IUser) => void;
+  login: (userData: IUser, cb: () => void) => void;
   logout: () => void;
 }
 
@@ -26,9 +26,11 @@ export const UserProvider: React.FC = ({ children }) => {
     setUser(user);
   }
 
-  const login = (userData: IUser) => {
+  const login = (userData: IUser, cb: () => void) => {
     setItemOnLocalStorage('user', userData);
     setUser(userData);
+
+    cb();
   }
 
   const logout = () => {

@@ -37,7 +37,7 @@ form label {
   display: flex;
   flex-direction: column;
 
-  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 form label span {
@@ -64,11 +64,17 @@ form label input:focus {
   border-color: #CDDC39;
 }
 
+form .error {
+  margin: 3.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: red;
+}
+
 form button {
   border: none;
   border-radius: 3px;
 
-  margin-top: 5rem;
   padding: 1.5rem 3rem;
   
   background-color: #CDDC39;
