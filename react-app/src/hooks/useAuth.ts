@@ -63,7 +63,9 @@ export const useAuth = () => {
       console.log(error)
 
       if (error.statusCode) {
-        return alert(`Erro com status : ${error.statusCode}`)
+        return alert(
+          `Erro com status : ${error.statusCode} - Usuário não encontrado!`
+        )
       }
 
       return setIsLoading(false)
