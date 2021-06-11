@@ -1,0 +1,7 @@
+@use "../../themes/variables.scss" as theme;
+
+.easter-egg {
+  text-decoration: none;
+  color: theme.$color-lightest-gray;
+  @extend .text-xs;
+}
