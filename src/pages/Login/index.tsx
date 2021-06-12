@@ -1,72 +1,58 @@
-import userEvent from '@testing-library/user-event';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router';
-import { api } from '../../services/api';
-import './styles.scss'
-
-interface User {
-  birthday: Date;
-  email: string;
-  gender: string;
-  id: number;
-  name: string;
-  state: string;
-  avatar: string;
-}
-// {
-//   "birthday": "1996-04-10",
-//   "email": "teste@front.com",
-//   "gender": "FEMALE",
-//   "id": 1,
-//   "name": "Grace Hopper",
-//   "state": "SP",
-//   "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg/1200px-Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg"
-// }
+import Button from '../../components/Button';
+import { useUser } from '../../contexts/UserContext';
+import './styles.scss';
 
 // email -> teste@front.com
 // password -> teste123
 
-
 function Login() {
-  const history = useHistory()
+  const { authUser, user } = useUser();
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isInvalidUser, setIsInvalidUser] = useState(false);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (user.email)
+      history.push('/dashboard');
+  }, [user.email, history]);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     setIsLoading(true);
 
     try {
-      const user: User = await api.post('user/login', {
-        email,
-        password
-      }).then(response => response.data);
+      await authUser(email, password);
 
-      // [ ] save user info in a context before redirect
+      history.push('/dashboard');
+      // [ ] create user as a context and save before redirect
       // [ ] create dashboard page, and redirect user
-      // history.push('/dashboard')
 
     } catch {
       setEmail('');
       setPassword('');
       setIsLoading(false);
+      setIsInvalidUser(true);
       return;
     }
   }
 
   return (
-    <div className='container'>
+    <div className='login-container'>
       <Helmet>
         <title>Test | Login</title>
       </Helmet>
-      <div className='content'>
+      <div className='login-content'>
         <h1>Login</h1>
 
         <form onSubmit={handleSubmit}>
-          <div className='input-and-label'>
+          <div className='login-input-and-label'>
             <label htmlFor="email">E-mail</label>
             <input
               type="email"
@@ -77,7 +63,7 @@ function Login() {
             />
           </div>
 
-          <div className='input-and-label'>
+          <div className='login-input-and-label'>
             <label htmlFor="password">Senha</label>
             <input
               type="password"
@@ -88,8 +74,9 @@ function Login() {
             />
           </div>
 
-          <button type="submit">{isLoading ? 'Aguarde...' : 'Login'}</button>
+          <p>{isInvalidUser && 'Combinação de usuário e senha inválida!'}&nbsp;</p>
 
+          <Button type='submit' loading={isLoading}>Login</Button>
         </form>
       </div>
     </div>
