@@ -1,12 +1,15 @@
 import { BrowserRouter as Router } from 'react-router-dom';
+import { UserProvider } from './contexts/UserContext';
 import Routes from './routes';
-import './styles/global-theme.css'
+import './styles/global-theme.css';
 
 function App() {
   return (
     <>
       <Router>
-        <Routes />
+        <UserProvider>
+          <Routes />
+        </UserProvider>
       </Router>
     </>
   );
