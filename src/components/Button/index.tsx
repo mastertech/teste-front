@@ -1,3 +1,4 @@
+import React from 'react';
 import { ButtonHTMLAttributes } from "react";
 import './styles.scss';
 

@@ -19,22 +19,20 @@ function Dashboard() {
       <Helmet>
         <title>Test | Dashboard</title>
       </Helmet>
-      <div className='dashboard-container'>
 
-        <div className='dashboard-content'>
-          <div className='dashboard-user-data'>
-            <div>
-              <h1>{user.name}</h1>
-              <p>Email: {user.email}</p>
-              <p>Estado: {user.state}</p>
-            </div>
-
-            <img src={user.avatar} alt="avatar" />
+      <main className='dashboard-content'>
+        <div className='dashboard-user-data'>
+          <div>
+            <h1>{user.name}</h1>
+            <p>Email: {user.email}</p>
+            <p>Estado: {user.state}</p>
           </div>
 
-          <Button onClick={signOut}>Log out</Button>
+          <img src={user.avatar} alt="avatar" />
         </div>
-      </div>
+
+        <Button onClick={signOut}>Log out</Button>
+      </main>
     </div>
   );
 }

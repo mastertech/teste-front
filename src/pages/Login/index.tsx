@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormEvent, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router';
@@ -21,7 +22,7 @@ function Login() {
   useEffect(() => {
     if (user.email)
       history.push('/dashboard');
-  }, [user.email, history]);
+  }, [history, user.email]);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -48,7 +49,7 @@ function Login() {
       <Helmet>
         <title>Test | Login</title>
       </Helmet>
-      <div className='login-content'>
+      <main className='login-content'>
         <h1>Login</h1>
 
         <form onSubmit={handleSubmit}>
@@ -78,7 +79,7 @@ function Login() {
 
           <Button type='submit' loading={isLoading}>Login</Button>
         </form>
-      </div>
+      </main>
     </div>
   );
 }
