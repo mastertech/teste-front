@@ -6,9 +6,6 @@ import Button from '../../components/Button';
 import { useUser } from '../../contexts/UserContext';
 import './styles.scss';
 
-// email -> teste@front.com
-// password -> teste123
-
 function Login() {
   const { authUser, user } = useUser();
 

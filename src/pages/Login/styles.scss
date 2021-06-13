@@ -1,6 +1,7 @@
 .login-container {
   margin: 0 auto;
   height: 100vh;
+  min-height: 36rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,6 +10,11 @@
 .login-content {
   padding: 1.5rem;
   width:35rem;
+
+  @media(max-width: 530px) {
+    width:25rem;
+  }
+
   height: 35rem;
   background-color: #f5f5f5;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);

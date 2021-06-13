@@ -12,6 +12,11 @@
   align-items: center;
   padding: 1.8rem;
   width:35rem;
+
+  @media(max-width: 530px) {
+    width:28rem;
+  }
+
   height: 15.5rem;
   background-color: #f5f5f5;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
