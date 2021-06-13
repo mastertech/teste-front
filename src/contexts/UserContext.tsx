@@ -14,7 +14,7 @@ interface User {
 interface UserContextData {
   authUser: (email: string, password: string) => Promise<void>;
   signOut: () => void;
-  user: User;
+  user: User | null;
 };
 
 interface UserProviderProps {
@@ -26,14 +26,14 @@ const UserContext = createContext({} as UserContextData);
 export function UserProvider({
   children,
 }: UserProviderProps) {
-  const [data, setData] = useState<User>(() => {
+  const [data, setData] = useState<User | null>(() => {
     const user = localStorage.getItem('@TestApp:user');
 
     if (user) {
       return JSON.parse(user);
     }
 
-    return {} as User;
+    return null;
   });
 
   const authUser = useCallback(async (email: string, password: string) => {
@@ -52,7 +52,7 @@ export function UserProvider({
   const signOut = useCallback(() => {
     localStorage.removeItem('@TestApp:user');
 
-    setData({} as User);
+    setData(null);
   }, []);
 
   return (
