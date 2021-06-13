@@ -1,0 +1,40 @@
+.user-card {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px;
+  width: 350px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.user-avatar {
+  width: 30%;
+}
+.user-info span {
+  margin: 8px 0;
+}
+
+.user-card .user-avatar img {
+    width: 100px;   
+}
+
+.user-card button {
+  background-color: lightblue;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  margin-top: 16px;
+  padding: 5px 30px;
+  cursor: pointer;
+}
+.user-card button:hover {
+  opacity: 0.7;
+}
