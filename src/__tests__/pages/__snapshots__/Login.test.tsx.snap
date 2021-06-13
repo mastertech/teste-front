@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page renders correctly 1`] = `
+<div
+  className="login-container"
+>
+  <main
+    className="login-content"
+  >
+    <h1>
+      Login
+    </h1>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="login-input-and-label"
+      >
+        <label
+          htmlFor="email"
+        >
+          E-mail
+        </label>
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="mail@example.com"
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        className="login-input-and-label"
+      >
+        <label
+          htmlFor="password"
+        >
+          Senha
+        </label>
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Senha"
+          type="password"
+          value=""
+        />
+      </div>
+      <p>
+         
+      </p>
+      <button
+        className="button"
+        type="submit"
+      >
+        Login
+      </button>
+    </form>
+  </main>
+</div>
+`;

@@ -20,9 +20,9 @@ function Login() {
   const history = useHistory();
 
   useEffect(() => {
-    if (user.email)
+    if (user)
       history.push('/dashboard');
-  }, [history, user.email]);
+  }, [history, user]);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -32,8 +32,6 @@ function Login() {
       await authUser(email, password);
 
       history.push('/dashboard');
-      // [ ] create user as a context and save before redirect
-      // [ ] create dashboard page, and redirect user
 
     } catch {
       setEmail('');
