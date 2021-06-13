@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import LoginView from '../../components/login';
+import { LoginView } from '../../components';
 
 const LoginPage: FC = () => <LoginView />;
 
