@@ -1,83 +1,70 @@
-# Teste Front-end Mastertech
-> Teste para ingressar como Front-end Developer na Mastertech
+# Getting Started with Create React App
 
-# Pré-requisitos
-- React
-- Functional components
-- React router
-- Hooks
-- Redux (useContext)
-- Consumo de APIs REST e protocolo HTTP
-- JS (ES6+)
-- Testes de snapshot com jest
-- Html5, CSS3 e Sass
-- Git
-- node/npm
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#### O que é permitido:
-- ES6+
-- Linters no geral tanto para JS como para CSS
-- SASS
-- React
+## Available Scripts
 
+In the project directory, you can run:
 
-#### O que não é permitido:
-- Frameworks/Bibliotecas CSS (Bootstrap, Foundation, Materializecss e afins) . Você pode utilizar qualquer metodologia de arquitetura de código.
-- Task runners como Webpack, Gulp, Grunt e afins.
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-O uso de ferramentas de teste é liberado (jest, jasmine, mocha, chai, sinon, supertest).
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-O objetivo desse teste é avaliar:
-- organização;
-- semântica;
-- funcionamento e usabilidade
-- uso e abuso das features das linguagens (React, CSS/SASS, JS);
-- uso de patterns;
-- performance do código;
-- testes de JavaScript.
+### `npm test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Pronto para começar o teste?
+### `npm run build`
 
-- Faça um "fork" desse repositório na sua conta do Github
-- Crie uma branch com o seu nome e sobrenome ex: `patrick-santos`
-- Após completar o desafio, crie um "pull request" nesse repositório comparando a sua branch com a master
-- Receberemos uma notificação do seu pull request, faremos a avaliação da sua solução e entraremos em contato.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-# Teste
-Crie as telas de login e de usuário que estão na pasta de imagens no arquivo de template, para fazer o login utilize 
-a api http://jrwee.mocklab.io
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
-#### Endpoint: POST /user/login
-**Request Body**
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
- ``` json 
- {
-    "email": "teste@front.com",
-    "password": "teste123"
-}
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-**Response 200**
-```json
-{
-  "birthday": "1996-04-10",
-  "email": "teste@front.com",
-  "gender": "FEMALE",
-  "id": 1,
-  "name": "Grace Hopper",
-  "state": "SP",
-  "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg/1200px-Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg"
-}
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-**Response 404**
-```
-Request was not matched 
-Neste caso considerar a resposta como 400 com o usuário enviando credenciais inválidas
-```
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Bom teste!
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
