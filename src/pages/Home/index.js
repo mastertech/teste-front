@@ -23,7 +23,7 @@ export default function Home() {
                     </UserInfos>
                     <img src={user.avatar} alt="avatar"/>
                 </UserCard>
-                <button onClick={handleLogout}>
+                <button onClick={handleLogout} data-testid="logout-btn">
                     Log out
                 </button>
             </Container>

@@ -17,6 +17,7 @@ export const Container = styled.div`
         align-self: center;
     }
 `;
+
 export const UserCard = styled.div`
     display: flex;
     justify-content: space-between;
@@ -28,11 +29,13 @@ export const UserCard = styled.div`
         width: 140px;
     }
 `;
+
 export const UserInfos = styled.div`
     > h1 {
         font-weight: 600;
         margin-bottom: 20px;
     }
+    
     > p {
         color: #8c8c8c;
         font-size: 20px;

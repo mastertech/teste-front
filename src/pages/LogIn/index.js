@@ -7,7 +7,6 @@ import Layout from '../../components/Layout';
 export default function LogIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const { Login } = useAuth();
 
     const handleLogin = (event) => {
@@ -21,7 +20,6 @@ export default function LogIn() {
             <Container>
                 <form onSubmit={handleLogin}>
                     <h1>Login</h1>
-
                     <InputsBlock>
                         <label htmlFor="email">E-mail</label>
                         <input
@@ -31,7 +29,6 @@ export default function LogIn() {
                             type="email"
                             onChange={(event) => setEmail(event.target.value)}
                         />
-                    
                         <label htmlFor="password">Senha</label>
                         <input
                             required
@@ -41,8 +38,7 @@ export default function LogIn() {
                             onChange={(event) => setPassword(event.target.value)}
                         />
                     </InputsBlock>
-
-                    <button type="submit">Login</button>
+                    <button type="submit" data-testid="login-btn">Login</button>
                 </form>
             </Container>
         </Layout>
