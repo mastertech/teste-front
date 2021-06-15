@@ -1,17 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Home from '../pages/Home';
-import Layout from '../components/Layout';
+import NotFound from '../pages/NotFound';
 
 export default function AppRoutes() {
     return(
-        <BrowserRouter>
             <Switch>
-                <Layout>
-                    <Route exact path="/" component={Home}/>
-                </Layout>
+                <Route exact path="/" component={Home}/>
+                <Route path="*" component={NotFound} status={404}/>
             </Switch>
-        </BrowserRouter>
     );
 };

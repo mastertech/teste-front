@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../contexts/auth';
 
 import { Container, InputsBlock } from './styles';
+import Layout from '../../components/Layout';
 
 export default function LogIn() {
     const [email, setEmail] = useState('');
@@ -12,37 +13,38 @@ export default function LogIn() {
     const handleLogin = (event) => {
         event.preventDefault();
         const loginData = {email, password}
-        Login(loginData)
-        console.log(loginData)
+        Login(loginData);
     }
 
     return(
-        <Container>
-            <form onSubmit={handleLogin}>
-                <h1>Login</h1>
+        <Layout>
+            <Container>
+                <form onSubmit={handleLogin}>
+                    <h1>Login</h1>
 
-                <InputsBlock>
-                    <label htmlFor="email">E-mail</label>
-                    <input
-                        required
-                        id="email"
-                        name="email"
-                        type="email"
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
-                
-                    <label htmlFor="password">Senha</label>
-                    <input
-                        required
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-                </InputsBlock>
+                    <InputsBlock>
+                        <label htmlFor="email">E-mail</label>
+                        <input
+                            required
+                            id="email"
+                            name="email"
+                            type="email"
+                            onChange={(event) => setEmail(event.target.value)}
+                        />
+                    
+                        <label htmlFor="password">Senha</label>
+                        <input
+                            required
+                            id="password"
+                            name="password"
+                            type="password"
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+                    </InputsBlock>
 
-                <button type="submit" >Login</button>
-            </form>
-        </Container>
+                    <button type="submit">Login</button>
+                </form>
+            </Container>
+        </Layout>
     );
 }

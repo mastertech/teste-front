@@ -15,13 +15,17 @@ const AuthProvider = ({ children }) => {
           api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
         }
       }, []);
-      
+
     async function Login(loginData) {
-        const response = await api.post('/user/login', loginData);
-        setUser(response.data);
-        api.defaults.headers.Authorization = `Bearer ${response.data.id}`;
-        localStorage.setItem('@App:user', JSON.stringify(response.data.name));
-        localStorage.setItem('@App:token', response.data.id);
+        try {
+            const response = await api.post('/user/login', loginData);
+            setUser(response.data);
+            localStorage.setItem('@App:user', JSON.stringify(response.data));
+            localStorage.setItem('@App:token', response.data.id);
+            api.defaults.headers.Authorization = `Bearer ${response.data.id}`;
+        } catch(error) {
+            alert(`Usuário ou senha inválidos!`);
+        }
     }
 
     function Logout() {
@@ -29,9 +33,6 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem('@App:user');
         localStorage.removeItem('@App:token');
     }
-
-    
-
 
     return (
         <AuthContext.Provider value={{logged: Boolean(user), user, Login, Logout}}>
