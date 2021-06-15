@@ -1,0 +1,38 @@
+.container {
+  background: var(--white);
+  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 80px auto;
+  padding: 20px 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+  ul {
+    li:nth-child(2) {
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    display: block;
+    margin: 40px auto;
+    max-width: 300px;
+    text-align: center;
+
+    ul {
+      text-align: center;
+
+      li:last-child {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+}
