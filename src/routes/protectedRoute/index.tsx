@@ -3,7 +3,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { ProtectedRouteProps } from './types';
 
 const ProtectedRoute: FC<ProtectedRouteProps> = ({
-    isAuthenticated = false,
+    isAuthenticated = true,
     ...routeProps
 }) => {
     if (isAuthenticated) {

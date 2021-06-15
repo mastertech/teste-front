@@ -8,7 +8,7 @@ import Dashboard from '../pages/dashboard';
 const Routes: FC = () => (
     <Switch>
         <Route path="/entrar" exact component={SignIn} />
-        <ProtectedRoute exact component={Dashboard} />
+        <ProtectedRoute path="/painel" exact component={Dashboard} />
     </Switch>
 );
 
