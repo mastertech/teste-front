@@ -8,18 +8,20 @@ import Dashboard from '../pages/dashboard';
 
 import { isEmpty } from '../pages/dashboard/utils';
 
-const data = JSON.parse(localStorage.getItem('info') || '{}');
+const Routes: FC = () => {
+    const data = JSON.parse(localStorage.getItem('info') || '{}');
 
-const Routes: FC = () => (
-    <Switch>
-        <Route path="/" exact component={SignIn} />
-        <ProtectedRoute
-            isAuthenticated={!isEmpty(data)}
-            path="/painel"
-            exact
-            component={Dashboard}
-        />
-    </Switch>
-);
+    return (
+        <Switch>
+            <Route path="/" exact component={SignIn} />
+            <ProtectedRoute
+                isAuthenticated={!isEmpty(data)}
+                path="/painel"
+                exact
+                component={Dashboard}
+            />
+        </Switch>
+    );
+};
 
 export default Routes;
