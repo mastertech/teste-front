@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-indent-props */
-import { useState, FC } from 'react';
+import { FC, useState, useContext } from 'react';
 import DataUser from './utils';
 import history from '../../services/history';
+import { AuthUserContext } from '../../contexts';
 
 import {
     Container,
@@ -15,13 +16,16 @@ import {
 const Dashboard: FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { setAuthUser } = useContext(AuthUserContext);
 
     async function handleLogin() {
         const val = await DataUser({ email, password });
 
         if (val) {
             const { data } = val;
-            localStorage.setItem('info', btoa(JSON.stringify(data)));
+
+            setAuthUser(data);
+            localStorage.setItem('info', JSON.stringify(data));
             history.push('/painel');
         }
     }

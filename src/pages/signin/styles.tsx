@@ -49,7 +49,7 @@ export const InputContainer = styled.div`
 
 export const ButtonContainer = styled.div`
     align-self: center;
-    margin-top: 50px;
+    margin-top: 20px;
 
     button {
         width: 94px;
