@@ -25,6 +25,7 @@ export default function LogIn() {
                         <input
                             required
                             id="email"
+                            data-testid="email"
                             name="email"
                             type="email"
                             onChange={(event) => setEmail(event.target.value)}
@@ -33,6 +34,7 @@ export default function LogIn() {
                         <input
                             required
                             id="password"
+                            data-testid="password"
                             name="password"
                             type="password"
                             onChange={(event) => setPassword(event.target.value)}

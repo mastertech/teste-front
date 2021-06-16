@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [logged, setLogged] = useState(false);
     
     useEffect(() => {
         const storagedUser = localStorage.getItem('@App:user');
@@ -12,6 +13,7 @@ const AuthProvider = ({ children }) => {
     
         if (storagedToken && storagedUser) {
           setUser(JSON.parse(storagedUser));
+          setLogged(true);
           api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
         }
       }, []);
@@ -20,6 +22,7 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await api.post('/user/login', loginData);
             setUser(response.data);
+            setLogged(true);
             localStorage.setItem('@App:user', JSON.stringify(response.data));
             localStorage.setItem('@App:token', response.data.id);
             api.defaults.headers.Authorization = `Bearer ${response.data.id}`;
@@ -30,12 +33,13 @@ const AuthProvider = ({ children }) => {
 
     function Logout() {
         setUser(null);
+        setLogged(false);
         localStorage.removeItem('@App:user');
         localStorage.removeItem('@App:token');
     }
 
     return (
-        <AuthContext.Provider value={{logged: Boolean(user), user, Login, Logout}}>
+        <AuthContext.Provider value={{logged, user, Login, Logout}}>
             {children}
         </AuthContext.Provider>
     );

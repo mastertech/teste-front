@@ -5,8 +5,7 @@ import Layout from '../../components/Layout';
 import { Container, UserCard, UserInfos } from './styles';
 
 export default function Home() {
-    const { Logout } = useAuth();
-    const { user } = useAuth();
+    const { user, Logout } = useAuth();
 
     async function handleLogout() {
         Logout();
