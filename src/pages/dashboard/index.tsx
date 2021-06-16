@@ -21,6 +21,11 @@ const Dashboard: FC = () => {
     const [userImg, setUserImg] = useState('');
     const { authUser } = useContext(AuthUserContext);
 
+    function handleLogout() {
+        localStorage.removeItem('info');
+        history.push('/');
+    }
+
     function setValues(data: IUserInfo) {
         const { name, email, state, avatar } = data;
 
@@ -67,7 +72,9 @@ const Dashboard: FC = () => {
                     </UserInfo>
 
                     <ButtonContainer>
-                        <button type="button">Log out</button>
+                        <button type="button" onClick={() => handleLogout()}>
+                            Log out
+                        </button>
                     </ButtonContainer>
                 </Section>
             </Container>
