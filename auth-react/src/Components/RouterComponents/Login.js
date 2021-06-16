@@ -8,6 +8,10 @@ function Login(props) {
     const context = useContext(AuthContext)   
 
     const [state, setState] = useState({ email: "", password: "" });
+    const [errors, setErrors] = useState({
+        email: null,
+        password: null,
+    });
     
     function handleChange(event) {
         setState({ ...state, [event.currentTarget.name]: event.currentTarget.value });
@@ -18,7 +22,6 @@ function Login(props) {
 
         try {
         const response = await api.post("/user/login", state);
-        // console.log(response);
 
         context.setLoggedInUser({ ...response.data });
         localStorage.setItem(
@@ -29,36 +32,44 @@ function Login(props) {
         props.history.push("/profile");
         } catch (err) {
             console.error(err.response);
+            setErrors({ ...err.response.data.errors });
+            alert('Erro '+err.response.status+'\n Usuário inválido \\ credenciais falsas!')
         }
     }
+
         return (
             <div className="container">
-                <div className="box-login">
+                <div className="box">
                     <form onSubmit={handleSubmit}>
-
-                        <h1>Login</h1>
-                        <div>
-                            <label htmlFor="signupFormEmail">E-mail</label>
+                        <div className="title">
+                            <h1>Login</h1>
+                        </div>
+                        <div className="form-input">
+                            <label htmlFor="signInFormEmail">E-mail</label>
                             <input
                             type="email"
                             name="email"
-                            id="signupFormEmail"
+                            id="signInFormEmail"
                             value={state.email}
+                            error={errors.email}
                             onChange={handleChange}
                             /> 
                         </div>
 
-                        <div>
-                            <label htmlFor="signupFormPassword">Password</label>
+                        <div className="form-input">
+                            <label htmlFor="signInFormPassword">Password</label>
                             <input
                             type="password"
                             name="password"
-                            id="signupFormPassword"
+                            id="signInFormPassword"
                             value={state.password}
+                            error={errors.password}
                             onChange={handleChange}
                             />
                         </div>
-                        <button type="submit">Login!</button>
+                        <div className='btn'>
+                            <button type="submit">Login</button>
+                        </div>
                     </form>
                 </div>
 

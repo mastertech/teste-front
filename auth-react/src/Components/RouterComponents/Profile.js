@@ -1,37 +1,55 @@
-// import { useState, useEffect } from 'react'
-// import { AuthContext } from '../Context/AuthContext'
-// import api from '../apis/api'
+import { useState, useEffect, useContext } from 'react'
+import { AuthContext } from '../Context/AuthContext'
+
 
 function Profile() {
-    // const context = useState(AuthContext)
-    // const [state, setState] = useState({
-    //     birthday: "",
-    //     email: "",
-    //     gender: "",
-    //     id: "",
-    //     name: "",
-    //     state: "",
-    //     avatar: ""
-    // })
+    const { loggedInUser, setLoggedInUser } = useContext(AuthContext)
+    const [state, setState] = useState({
+        birthday: "",
+        email: "",
+        gender: "",
+        id: "",
+        name: "",
+        state: "",
+        avatar: ""
+    })
     
-    const getData = localStorage.getItem("loggedInUser")
-   
-    const parsedStoredUser = JSON.parse(getData || '""');    
+    useEffect(() => {        
+            try{
+                const getData = localStorage.getItem("loggedInUser")   
+                const parsedStoredUser = JSON.parse(getData || '""'); 
 
-    // console.log(parsedStoredUser.name)
+                setState({ ...parsedStoredUser})
+            } catch(err) {
+                console.error(err)
+            }
+        
+    }, [])       
+    
     return(
         <div className="container">
-            <div className="box-profile">
-                <div>
-                    <h1>Usuário</h1>
-                    <label>Email: {parsedStoredUser.email}</label>
-                    <label>Estado: {parsedStoredUser.state}</label>
+            <div className="box">
+                <div className="box-profile">
+                    <div className="data">                    
+                        <h1>{state.name}</h1>
+                        <label>{state.email}</label>
+                        <label>{state.state}</label>
+                    </div>
+                    <div className='data-img'>
+                        <img className='avatar' src={state.avatar} />
+                    </div>
                 </div>
-                <div>
-                    
+                <div className='btn-logout'>
+                    <button onClick={(event) => {
+                        event.preventDefault()
+                        setLoggedInUser({ email: {}})
+                        localStorage.removeItem("loggedInUser")
+                    }}
+                    >
+                        Log Out
+                    </button>
                 </div>
             </div>
-            <button>Log Out</button>
         </div>
     )
 }
