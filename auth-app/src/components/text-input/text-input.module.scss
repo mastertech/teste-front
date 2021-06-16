@@ -1,0 +1,34 @@
+@import '../../styles/colors';
+
+.inputContainer {
+  background: $light-secondary-color;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  transition: all 0.2s ease-in;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 1px;
+  border: none;
+  border-bottom: 2px solid darkslategray;
+  padding: 15px;
+  position: relative;
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: large;
+    color: $dark-color;
+  }
+
+  &:active,
+  &:focus {
+    border-bottom: 2px solid darkslateblue;
+  }
+}
+
+.label {
+  margin-top: 15px;
+}

@@ -6,17 +6,24 @@ type Props = {
   isPasswordField?: boolean;
   error?: string;
   label?: string;
-  
-  type: 'text' | 'email' | 'password';
+  type?: 'text' | 'email' | 'password';
 } & HTMLAttributes<HTMLInputElement>;
 
-const TextInput: React.FC<Props> = ({ type, isPasswordField, ...rest }) => {
+const TextInput: React.FC<Props> = ({
+  type = 'text',
+  label,
+  isPasswordField,
+  ...rest
+}) => {
   const [secureText, setSecureText] = useState(type === 'password');
 
   return (
-    <div className={`${styles.inputContainer}`}>
-      <input {...rest} />
-    </div>
+    <>
+      <p className={styles.label}>{label}</p>
+      <div className={`${styles.inputContainer}`}>
+        <input {...rest} />
+      </div>
+    </>
   );
 };
 
