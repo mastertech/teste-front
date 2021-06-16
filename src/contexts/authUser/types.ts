@@ -1,4 +1,11 @@
+export type UserInfoProps = {
+    name: string;
+    email: string;
+    state: string;
+    avatar: string;
+};
+
 export type ContextDefaultValuesProps = {
-    authUser: object;
+    authUser: UserInfoProps;
     setAuthUser: (value: object) => void;
 };

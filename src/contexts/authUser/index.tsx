@@ -1,8 +1,13 @@
 import { FC, useState, createContext } from 'react';
-import { ContextDefaultValuesProps } from './types';
+import { ContextDefaultValuesProps, UserInfoProps } from './types';
 
 const contexDefaultValues: ContextDefaultValuesProps = {
-    authUser: {},
+    authUser: {
+        name: '',
+        email: '',
+        state: '',
+        avatar: '',
+    },
     setAuthUser: () => {},
 };
 
@@ -10,9 +15,11 @@ export const AuthUserContext =
     createContext<ContextDefaultValuesProps>(contexDefaultValues);
 
 const AuthUserProvider: FC = ({ children }) => {
-    const [authUser, setAU] = useState<object>(contexDefaultValues.authUser);
+    const [authUser, setAU] = useState<UserInfoProps>(
+        contexDefaultValues.authUser,
+    );
 
-    const setAuthUser = (newAuthUser: object) => setAU(newAuthUser);
+    const setAuthUser = (newAuthUser: any) => setAU(newAuthUser);
 
     return (
         <AuthUserContext.Provider value={{ authUser, setAuthUser }}>
