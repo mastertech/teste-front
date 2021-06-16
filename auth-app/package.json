@@ -8,8 +8,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "npm run lint && npm run prettier:write",
-    "lint": "eslint . --ext jsx --ext js --fix",
-    "prettier:write": "npx prettier --write **/*.{js,jsx,json} && npx prettier --write *.{js,jsx,json}"
+    "lint": "eslint . --ext tsx --ext ts --fix",
+    "prettier:write": "npx prettier --write **/*.{ts,tsx,json} && npx prettier --write *.{ts,tsx,json}"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -21,6 +21,7 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
     "web-vitals": "^1.0.1"
   },
   "eslintConfig": {

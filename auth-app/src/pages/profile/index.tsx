@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { UserProfileView } from '../../components';
+import { UserProfileView } from '../../views';
 
 const ProfilePage: FC = () => <UserProfileView />;
 

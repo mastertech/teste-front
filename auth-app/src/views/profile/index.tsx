@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Button } from '../../components';
 import { useAuthContext } from '../../hooks';
 
 const UserProfile = () => {
@@ -7,6 +8,7 @@ const UserProfile = () => {
   return (
     <div>
       <p>{user}</p>
+      <Button>Sair</Button>
     </div>
   );
 };

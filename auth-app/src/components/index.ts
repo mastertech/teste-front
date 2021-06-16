@@ -1,2 +1,2 @@
-export { default as LoginView } from './login';
-export { default as UserProfileView } from './profile';
+export { default as Button } from './button';
+export { default as TextInput } from './text-input';

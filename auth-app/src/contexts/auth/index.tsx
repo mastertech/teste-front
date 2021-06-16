@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React, {
   createContext,
   FC,
@@ -7,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { Routes, StorageKeys } from '../../constants';
 import { IUser, LoginPayload } from '../../constants/types';
@@ -40,10 +40,10 @@ export const AuthContextProvider: FC = props => {
           setIsLogged(true);
           localStorage.setItem(StorageKeys.USER_KEY, JSON.stringify(data));
           push(Routes.Profile);
+          toast.success('Bem-vindo de volta!');
         }
       } catch (error) {
-        // eslint-disable-next-line no-alert
-        if (error.code === 400) alert('Wrong Email or Password!');
+        if (error.code === 400) toast.error('Email ou senha incorretos');
       } finally {
         if (isMounted.current) setIsLoading(false);
       }
@@ -60,7 +60,7 @@ export const AuthContextProvider: FC = props => {
       localStorage.removeItem(StorageKeys.USER_KEY);
       setIsLogged(false);
     } catch (error) {
-      alert('Algo correu mal!');
+      toast.error('Algo correu mal!');
     } finally {
       if (isMounted.current) {
         setIsLogged(false);
@@ -87,7 +87,7 @@ export const AuthContextProvider: FC = props => {
         setIsLogged(true);
       }
     } catch (e) {
-      alert('Algo correu mal!');
+      toast.error('Algo correu mal!');
     } finally {
       if (isMounted.current) setIsLoading(false);
       push('/');
