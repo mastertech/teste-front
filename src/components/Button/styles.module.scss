@@ -1,0 +1,19 @@
+.buttonContainer {
+  margin-top: 25px;
+  text-align: center;
+
+  button {
+    border: 0;
+    font-size: 18px;
+    padding: 15px 40px;
+    border-radius: 2px;
+    background: var(--lemon-green);
+    color: var(--dark-gray);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: linear 0.15s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+}
