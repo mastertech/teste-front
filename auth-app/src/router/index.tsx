@@ -17,10 +17,10 @@ export const Router = () => {
 
   return (
     <Switch>
-      <Route exact path="/" render={() => <Redirect to={Routes.Profile} />} />
+      <PrivateRoute exact path="/" component={ProfilePage} />
       <Route path={Routes.Login} component={LoginPage} />
       <PrivateRoute path={Routes.Profile} component={ProfilePage} />
-      <Route path="*" render={() => <Redirect to="/" />} />
+      <Route path="*" render={() => <Redirect to={Routes.Profile} />} />
     </Switch>
   );
 };
