@@ -40,6 +40,7 @@
     ],
     "sort-imports": "off",
     "import/first": "error",
+    "import/no-unresolved": "off",
     "import/newline-after-import": "warn",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
