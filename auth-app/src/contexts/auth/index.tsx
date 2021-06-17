@@ -78,7 +78,6 @@ export const AuthContextProvider: FC = props => {
    * logged in (redirects to profile page)
    */
   const retrieveUserData = useCallback(() => {
-    setIsLoading(true);
     try {
       const loadedUser = localStorage.getItem(StorageKeys.USER_KEY);
       if (!loadedUser) {
@@ -90,7 +89,6 @@ export const AuthContextProvider: FC = props => {
     } catch (e) {
       toast.error('Algo correu mal!');
     } finally {
-      if (isMounted.current) setIsLoading(false);
       push('/');
     }
   }, [isMounted, push]);
