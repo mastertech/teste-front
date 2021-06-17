@@ -1,0 +1,62 @@
+@import '../../styles/colors';
+
+.btnContainer {
+  background: $accent-color;
+  min-width: 10em;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  font-size: large;
+  color: $light-color;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  position: relative;
+
+  &:active {
+    outline: none;
+    background: crimson;
+  }
+  &:focus {
+    transform: translateY(0.1rem);
+  }
+  &:hover {
+    box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.1rem);
+  }
+}
+
+.spinner {
+  span {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 800ms ease infinite;
+  }
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}

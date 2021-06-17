@@ -1,0 +1,32 @@
+@import '../../styles/colors';
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  transition: all 0.1s ease-in;
+  letter-spacing: 1px;
+  border-radius: 1px;
+  border: none;
+  border-bottom: 2px solid grey;
+  padding: 15px 8px;
+  position: relative;
+  margin-bottom: 35px;
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: large;
+    color: $dark-color;
+  }
+}
+
+.label {
+  font-size: large;
+}
+
+.focusedInput {
+  border-bottom: 2px solid darksalmon;
+}
