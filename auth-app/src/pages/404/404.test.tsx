@@ -5,6 +5,6 @@ import NotFoundPage from './index';
 
 test('renders 404 title', () => {
   render(<NotFoundPage />);
-  const linkElement = screen.getByText(/404/i);
+  const linkElement = screen.getByText(/404!/i);
   expect(linkElement).toBeInTheDocument();
 });
