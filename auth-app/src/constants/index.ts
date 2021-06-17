@@ -1,6 +1,6 @@
 export const Routes = {
   Login: '/login',
-  Profile: '/profile',
+  Profile: '/perfil',
 };
 
 export const APIEndpoints = {

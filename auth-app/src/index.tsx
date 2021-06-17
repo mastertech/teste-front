@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/global.scss';
 
 import React from 'react';

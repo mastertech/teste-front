@@ -3,27 +3,28 @@ import React, { HTMLAttributes, useState } from 'react';
 import styles from './text-input.module.scss';
 
 type Props = {
-  isPasswordField?: boolean;
-  error?: string;
   label?: string;
   type?: 'text' | 'email' | 'password';
 } & HTMLAttributes<HTMLInputElement>;
 
-const TextInput: React.FC<Props> = ({
-  type = 'text',
-  label,
-  isPasswordField,
-  ...rest
-}) => {
-  const [secureText, setSecureText] = useState(type === 'password');
-
+const TextInput: React.FC<Props> = ({ type, label, ...rest }) => {
+  const [focused, setFocused] = useState(false);
   return (
-    <>
-      <p className={styles.label}>{label}</p>
-      <div className={`${styles.inputContainer}`}>
-        <input {...rest} />
+    <div>
+      <span className={styles.label}>{label}</span>
+      <div
+        className={`${styles.inputContainer} ${
+          focused ? styles.focusedInput : undefined
+        }`}
+      >
+        <input
+          {...rest}
+          type={type}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+        />
       </div>
-    </>
+    </div>
   );
 };
 

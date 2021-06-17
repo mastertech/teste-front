@@ -7,5 +7,5 @@ export interface AuthContextProps {
 
   signIn: (payload: LoginPayload) => Promise<void>;
   signOut: () => Promise<void>;
-  retrieveUserData: () => Promise<void>;
+  retrieveUserData(): void;
 }

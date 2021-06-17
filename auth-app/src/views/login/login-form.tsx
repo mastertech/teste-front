@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { Button, TextInput } from '../../components';
 import { useAuthContext } from '../../hooks';
@@ -8,8 +9,9 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleOnSubmit = () => {
-    signIn({ email, password });
+  const handleOnSubmit = async () => {
+    if (!email || !password) toast.error('Informe o seu email e a senha!');
+    else await signIn({ email, password });
   };
 
   const handleChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,19 +23,26 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleOnSubmit}>
+    <div>
       <TextInput
         label="Email"
+        defaultValue={email}
         placeholder="seunome@exemplo.com"
         onChange={handleChangeEmail}
       />
       <TextInput
+        type="password"
         label="Senha"
+        defaultValue={password}
         placeholder="*********"
         onChange={handleChangePassword}
       />
-      <Button isLoading={isLoading}>Entrar</Button>
-    </form>
+      <p style={{ textAlign: 'center' }}>
+        <Button isLoading={isLoading} onClick={handleOnSubmit}>
+          Entrar
+        </Button>
+      </p>
+    </div>
   );
 };
 

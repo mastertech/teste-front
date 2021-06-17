@@ -14,7 +14,7 @@ const Button: React.FC<Props> = ({ children, isLoading = false, ...rest }) => {
       disabled={isLoading}
       {...rest}
     >
-      <span>{children}</span>
+      {!isLoading && <span>{children}</span>}
     </button>
   );
 };

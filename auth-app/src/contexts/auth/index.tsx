@@ -43,7 +43,9 @@ export const AuthContextProvider: FC = props => {
           toast.success('Bem-vindo de volta!');
         }
       } catch (error) {
-        if (error.code === 400) toast.error('Email ou senha incorretos');
+        if (error.message.includes('404'))
+          toast.error('Email ou senha incorretos!');
+        else toast.error('Algo correu mal!');
       } finally {
         if (isMounted.current) setIsLoading(false);
       }
@@ -59,6 +61,7 @@ export const AuthContextProvider: FC = props => {
     try {
       localStorage.removeItem(StorageKeys.USER_KEY);
       setIsLogged(false);
+      setUser(undefined);
     } catch (error) {
       toast.error('Algo correu mal!');
     } finally {
@@ -74,15 +77,13 @@ export const AuthContextProvider: FC = props => {
    * Retrieve Data Action - get the user data from the localstorage & sets as
    * logged in (redirects to profile page)
    */
-  const retrieveUserData = useCallback(async () => {
+  const retrieveUserData = useCallback(() => {
     setIsLoading(true);
     try {
       const loadedUser = localStorage.getItem(StorageKeys.USER_KEY);
       if (!loadedUser) {
         setIsLogged(false);
-        return;
-      }
-      if (isMounted.current) {
+      } else if (isMounted.current) {
         setUser(JSON.parse(loadedUser));
         setIsLogged(true);
       }
